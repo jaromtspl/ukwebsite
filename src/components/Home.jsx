@@ -32,7 +32,7 @@ function Home() {
         <div className='container'>
             <div className='outernav'>
                 <div className='navbar'>
-                    <img src="https://ik.imagekit.io/jaromjery/final/WhatsApp%20Image%202024-02-13%20at%203.11.23%20PM.jpeg?updatedAt=1707817811395" className='logo' alt="logo" />
+                    <img src="https://ik.imagekit.io/jaromjery/final/jj.jpeg?updatedAt=1707820609307" className='logo' alt="logo" />
                     <ul>
                         <li>Home</li>
                         <li>About Us</li>

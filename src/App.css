@@ -132,7 +132,7 @@ p {
   color: green;
 }
 .logo {
-  height: 65px;
+  height: 45px;
 }
 
 .outernav {
@@ -142,7 +142,7 @@ p {
 
 .navbar {
   display: flex;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
 }
 
