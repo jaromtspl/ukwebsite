@@ -162,9 +162,7 @@ li {
   cursor: pointer;
 }
 
-li:hover {
-  text-decoration: underline;
-}
+
 .content-box{
   height: 70%;
   display: flex;

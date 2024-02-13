@@ -1,33 +1,38 @@
-// Home.jsx
-
-import React from 'react';
-
-
+import React, { useEffect } from 'react';
 
 function Home() {
+    useEffect(() => {
+        var countDownDate = new Date("Jun 15, 2024 00:00:00").getTime();
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            
+            const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("months").innerHTML = months < 10 ? "0" + months : months;
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
 
+            if (distance < 0) {
+                clearInterval(x);
+                // You can perform any action when the countdown reaches zero here
+            }
+        },1000);
 
-    var countDownDate = new Date("feb 28, 2024 00:00:00").getTime();
-    var x = setInterval(function () {
-        var now = new Date().getTime();
-        var distance = countDownDate - now
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000); 
-        document.getElementById("days").innerHTML=days;
-        document.getElementById("hours").innerHTML=hours;
-        document.getElementById("minutes").innerHTML=minutes;
-        document.getElementById("seconds").innerHTML=seconds;
-    }, 1000)
-
-
+        return () => clearInterval(x);
+    }, []);
 
     return (
         <div className='container'>
             <div className='outernav'>
                 <div className='navbar'>
-                    <img src="https://ik.imagekit.io/jaromjery/img/Logo%20sample_page-0001.jpg?updatedAt=1707759742910" className='logo' alt="logo" />
+                    <img src="https://ik.imagekit.io/jaromjery/final/WhatsApp%20Image%202024-02-13%20at%203.11.23%20PM.jpeg?updatedAt=1707817811395" className='logo' alt="logo" />
                     <ul>
                         <li>Home</li>
                         <li>About Us</li>
@@ -41,6 +46,10 @@ function Home() {
                     <p>Website Is Under Maintenance</p>
                     <h1>We're <span>Launching</span> soon</h1>
                     <div className='launch-time'>
+                        <div>
+                            <p id='months'>00</p>
+                            <span>Months</span>
+                        </div>
                         <div>
                             <p id='days'>00</p>
                             <span>Days</span>
