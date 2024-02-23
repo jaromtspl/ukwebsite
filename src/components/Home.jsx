@@ -6,14 +6,13 @@ function Home() {
         var x = setInterval(function () {
             var now = new Date().getTime();
             var distance = countDownDate - now;
-            
-            const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
             
-            document.getElementById("months").innerHTML = months < 10 ? "0" + months : months;
             document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
             document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
@@ -23,7 +22,7 @@ function Home() {
                 clearInterval(x);
                 // You can perform any action when the countdown reaches zero here
             }
-        },1000);
+        }, 1000);
 
         return () => clearInterval(x);
     }, []);
@@ -47,10 +46,6 @@ function Home() {
                     <h1>We're <span>Launching</span> soon</h1>
                     <div className='launch-time'>
                         <div>
-                            <p id='months'>00</p>
-                            <span>Months</span>
-                        </div>
-                        <div>
                             <p id='days'>00</p>
                             <span>Days</span>
                         </div>
@@ -66,6 +61,10 @@ function Home() {
                             <p id='seconds'>00</p>
                             <span>Seconds</span>
                         </div>
+                    </div>
+                    <div className='who'>
+                        <h1>Who We are ?</h1>
+                        <p>We provide A to Z manpower Supply for your Home needs and Company needs.</p>
                     </div>
                     <button type='button'>Learn More</button>
                     {/* Add more content as needed */}
